@@ -1,0 +1,48 @@
+
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #e7e7e7;
+    }
+    h2 {
+      background-color: #04AA6D;
+    }
+    form {
+      text-align: match-parent;
+      background-color: #04AA6D;
+    }
+  </style>
+</head>
+<body>
+<h2>{{action}} un Patient</h2>
+
+<form #f="ngForm" novalidate>
+  <label for="Num">Num:</label><br>
+  <input type="text" id="Num" name="Num" value="{{p[0].num}}" ngModel><br><br>
+
+  <label for="Name">Name:</label><br>
+  <input type="text" id="Name" name="Name" value="{{p[0].name}}" ngModel><br>
+
+  <label for="Age">Age:</label><br>
+  <input type="number" id="Age" name="Age" value="{{p[0].age}}" ngModel><br>
+
+  <label for="Adress">Adress:</label><br>
+  <input type="text" id="Adress" name="Adress" value="{{p[0].adress}}" ngModel><br><br>
+
+  <input type="checkbox" id="Malade" name="Malade" checked ngModel>
+  <label for="Malade"> Malade ?</label><br>
+
+  <label for="Score">Score:</label><br>
+  <input type="number" id="Score" name="Score" value="{{p[0].score}}" ngModel><br><br>
+
+  <input *ngIf="action == 'Ajouter'" type="submit" value="{{action}}" (click)="ajouterPatient(f.value)" routerLink="/patient">
+  <input *ngIf="action == 'Modifier'" type="submit" value="{{action}}" (click)="modifierPatient(id , f.value)" routerLink="/patient">
+  <input *ngIf="action == 'z'" type="string" id="id" name="id" value="{{id}}" ngModel><br><br>
+</form>
+
+</body>
+</html>

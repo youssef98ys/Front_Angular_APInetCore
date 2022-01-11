@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
+
+    th {
+      background-color: #04AA6D;
+      color: white;
+    }
+    h2 {
+      text-align: center;
+      background-color: #04AA6D;
+      color: #e7e7e7;
+    }
+    .button3 {
+      background-color: white;
+      color: black;
+      border: 2px solid #f44336;
+    }
+    .button2 {
+      background-color: white;
+      color: black;
+      border: 2px solid #008CBA;
+    }
+
+  </style>
+</head>
+<body>
+<h2>Liste des Patients</h2>
+
+<table>
+  <tr>
+    <th>Num</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Adress</th>
+    <th>Malade</th>
+    <th>Score</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let p of patients">
+    <td>{{p.num}}</td>
+    <td>{{p.name}}</td>
+    <td>{{p.age}}</td>
+    <td>{{p.adress}}</td>
+    <td>{{p.malade}}</td>
+    <td>{{p.score}}</td>
+    <td>
+      <button class="button2" [routerLink]="['/ajouter',p.id]"> Modifier </button>
+    </td>
+    <td>
+      <button class="button3" routerLink="/" (click)="supprimerPatient(p.id)" >Supprimer </button>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+
